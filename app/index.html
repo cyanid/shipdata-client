@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Väistä viharatikka</title>
+  <meta name="description" content="Nyppiikö viharatikka? Näe milloin seuraava laiva saapuu Länsisatamaan.">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+  <meta property="og:url" content="http://huttunen.fi/viharatikka"/>
+  <meta property="og:type" content="app"/>
+  <meta property="og:title" content="Väistä viharatikka"/>
+  <meta property="og:description" content="Näe koska seuraava laiva saapuu Helsingin Länsisatamaan."/>
+</head>
+<body ng-app="shipdataClientApp">
+<!--[if lte IE 8]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<div class="header">
+
+</div>
+
+<div class="container">
+  <div ng-view=""></div>
+</div>
+
+<div class="footer">
+  <div class="container">
+    <p>
+      Tällä sovelluksella ei ole mitään tekemistä HSL:n, Länsisataman tai siellä liikennöivien varustamojen kanssa.
+      Tekijä ei ota vastuuta tiedon oikeellisuudesta tai sovelluksen toimivuudesta.
+      Tekijä ei myöskään vastaa mistään muustakaan mitä tämän sovelluksen tiedoilla teit. Otan mielelläni kylläkin
+      vastaan palautetta ja parannusehdotuksia sähköpostiini teemu .at. huttunen.fi
+    </p>
+
+    <p>
+      Datan pohjana käytetään Port Of Helsinki -sivuston tarjoamaa julkista saapuvien laivojen tietoa osoitteesta <a
+      target="_blank" href="http://www.portofhelsinki.fi/tavaraliikenne/saapuvat_alukset">http://www.portofhelsinki.fi/tavaraliikenne/saapuvat_alukset</a>
+    </p>
+
+    <p>
+      &copy; Teemu Huttunen 2016
+    </p>
+  </div>
+</div>
+
+<script>
+  !function (A, n, g, u, l, a, r) {
+    A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
+        (A[l].q = A[l].q || []).push(arguments)
+      }, A[l].l = +new Date, a = n.createElement(g),
+      r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+  }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-3561310-11');
+  ga('send', 'pageview');
+</script>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+<script src="bower_components/restangular/dist/restangular.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/angular-moment/angular-moment.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/about.js"></script>
+<!-- endbuild -->
+</body>
+</html>
