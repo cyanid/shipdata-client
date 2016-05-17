@@ -15,24 +15,39 @@ angular.module('shipdataClientApp')
     $scope.shipData = {};
     $scope.moreShipData = [];
     $scope.nextShipData = {};
+    $scope.previousShipData = {};
     $scope.moreShips = false;
 
     $scope.shipAmountOffset = 0;
 
-    var baseAccounts = Restangular.all('shipData');
-
-    // This will query /accounts and return a promise.
-    //console.log('main ctrl');
-    baseAccounts.getList().then(function (shipData) {
+    var currentShips = Restangular.all('shipData');
+    currentShips.getList().then(function (shipData) {
       //console.log('got ship data');
       //console.log(shipData);
-
-      $scope.shipData = shipData;
-      $scope.shipDataReady = true;
+      if (shipData[1 + $scope.shipAmountOffset].firmName.indexOf('C & C Port Agency') >= 0) {
+        $scope.shipAmountOffset = $scope.shipAmountOffset + 3;
+      }
 
       $scope.nextShipData.shipName = shipData[0 + $scope.shipAmountOffset].shipName;
       $scope.nextShipData.firmName = shipData[1 + $scope.shipAmountOffset].firmName;
       $scope.nextShipData.arrivalTime = shipData[2 + $scope.shipAmountOffset].arrivalTime;
+
+      $scope.shipData = shipData;
+      $scope.shipDataReady = true;
+
+    });
+
+    var previousShips = Restangular.all('shipDataHistory');
+    previousShips.getList().then(function (shipData) {
+      //console.log('got ship data');
+      //console.log(shipData);
+
+      //$scope.shipData = shipData;
+      //$scope.shipDataReady = true;
+
+      $scope.previousShipData.shipName = shipData[shipData.length-3].shipName;
+      $scope.previousShipData.firmName = shipData[shipData.length-2].firmName;
+      $scope.previousShipData.arrivalTime = shipData[shipData.length-1].arrivalTime;
 
     });
 
