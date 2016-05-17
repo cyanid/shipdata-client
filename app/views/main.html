@@ -24,6 +24,21 @@
   </table>
   </p>
 
+  <h5 style="margin-top: 20px; font-size: 16px;">Edellinen saapunut laiva Länsisatamaan</h5>
+  <button class="btn btn-lg" style="background-color: #EEEEEE; cursor: default;" ng-show="!shipDataReady">
+    <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Hetko vaan...
+  </button>
+
+  <table class="table" ng-show="shipDataReady"
+         style="font-size: 20px; max-width: 450px; margin-left: auto; margin-right: auto;">
+    <tbody>
+    <td>{{ previousShipData.firmName }}</td>
+    <td>{{ previousShipData.shipName}}</td>
+    <td>{{ previousShipData.arrivalTime | amDateFormat:'DD.MM.YYYY HH:mm' }}</td>
+    </tbody>
+  </table>
+  </p>
+
   <p>
     Voit myös aina tarkistaa Länsisataman nykyisen liikennetilanteen <a target="_blank"
                                                                         href="https://goo.gl/maps/ktRfaXuMw7G2">Googlen
