@@ -24,7 +24,7 @@ angular.module('shipdataClientApp')
     currentShips.getList().then(function (shipData) {
       //console.log('got ship data');
       //console.log(shipData);
-      if (shipData[1 + $scope.shipAmountOffset].firmName.indexOf('C & C Port Agency') >= 0) {
+      if (shipData[1 + $scope.shipAmountOffset].firmName.indexOf('C & C Port Agency') >= 0 || shipData[1 + $scope.shipAmountOffset].firmName.indexOf('ESL Shipping') >= 0) {
         $scope.shipAmountOffset = $scope.shipAmountOffset + 3;
       }
 
