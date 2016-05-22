@@ -44,7 +44,7 @@ angular.module('shipdataClientApp')
 
       $scope.moreShips = true;
 
-      console.log($scope.moreShipData);
+      //console.log($scope.moreShipData);
     };
 
     $scope.fetchCurrent = function () {

@@ -36,6 +36,25 @@
   <!-- End Facebook Pixel Code -->
 </head>
 <body ng-app="shipdataClientApp">
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1085663498158939',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
@@ -70,6 +89,10 @@
 
     <p>
       &copy; <a href="https://twitter.com/cyanid_" target="_blank">Teemu Huttunen</a> 2016
+    </p>
+
+    <p>
+      <a href="/#/yksityisyys">Yksityisyys</a>
     </p>
   </div>
 </div>
