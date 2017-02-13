@@ -20,27 +20,13 @@ angular.module('shipdataClientApp')
 
     $scope.shipAmountOffset = 0;
 
-    var previousShips = Restangular.all('shipDataHistory');
-    previousShips.getList().then(function (shipData) {
-      //console.log('got ship data');
-      //console.log(shipData);
-
-      //$scope.shipData = shipData;
-      //$scope.shipDataReady = true;
-
-      $scope.previousShipData.shipName = shipData[shipData.length - 3].shipName;
-      $scope.previousShipData.firmName = shipData[shipData.length - 2].firmName;
-      $scope.previousShipData.arrivalTime = shipData[shipData.length - 1].arrivalTime;
-
-    });
-
     $scope.getMoreShips = function () {
-      console.log('get more ships');
+      //console.log('get more ships');
       $scope.shipAmountOffset = $scope.shipAmountOffset + 3;
 
-      $scope.moreShipDataShip = $scope.shipData[0 + $scope.shipAmountOffset].shipName;
-      $scope.moreShipDataFirm = $scope.shipData[1 + $scope.shipAmountOffset].firmName;
-      $scope.moreShipDataArrivalTime = $scope.shipData[2 + $scope.shipAmountOffset].arrivalTime;
+      $scope.moreShipDataShip = $scope.shipData[1].shipName;
+      $scope.moreShipDataFirm = $scope.shipData[1].firmName;
+      $scope.moreShipDataArrivalTime = $scope.shipData[1].arrivalTime;
 
       $scope.moreShips = true;
 
@@ -56,20 +42,11 @@ angular.module('shipdataClientApp')
       var currentShips = Restangular.all('shipData');
       currentShips.getList().then(function (shipData) {
         //console.log('got ship data');
-        //console.log(shipData);
-        if (shipData[1 + $scope.shipAmountOffset].firmName.indexOf('C & C Port Agency') >= 0 || shipData[1 + $scope.shipAmountOffset].firmName.indexOf('ESL Shipping') >= 0) {
-          $scope.shipAmountOffset = $scope.shipAmountOffset + 3;
-        }
+        //console.log(shipData[0]);
 
-        var arrivalMoment = new Date(shipData[2 + $scope.shipAmountOffset].arrivalTime);
-
-        if (arrivalMoment.getTime() < new Date().getTime()) {
-          $scope.shipAmountOffset = $scope.shipAmountOffset + 3;
-        }
-
-        $scope.nextShipData.shipName = shipData[0 + $scope.shipAmountOffset].shipName;
-        $scope.nextShipData.firmName = shipData[1 + $scope.shipAmountOffset].firmName;
-        $scope.nextShipData.arrivalTime = shipData[2 + $scope.shipAmountOffset].arrivalTime;
+        $scope.nextShipData.shipName = shipData[0].shipName;
+        $scope.nextShipData.firmName = shipData[0].firmName;
+        $scope.nextShipData.arrivalTime = shipData[0].arrivalTime;
 
         $scope.shipData = shipData;
         $scope.shipDataReady = true;
