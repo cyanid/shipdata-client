@@ -28,9 +28,9 @@ angular.module('shipdataClientApp')
             $scope.moreShipDataFirm = $scope.shipData[1].firmName;
 
             var arrivalTime = $scope.shipData[1].arrivalTime;
-            arrivalTime = arrivalTime.substr(3, 2) + '.' + arrivalTime.substr(0, 2) + '. ' + arrivalTime.substr(6, 5);
+            //arrivalTime = arrivalTime.substr(3, 2) + '.' + arrivalTime.substr(0, 2) + '. ' + arrivalTime.substr(6, 5);
 
-            $scope.moreShipDataArrivalTime = arrivalTime;
+            $scope.moreShipDataArrivalTime = $scope.shipData[1].arrivalTime;
 
             $scope.moreShips = true;
         };
@@ -51,9 +51,9 @@ angular.module('shipdataClientApp')
 
                 var arrivalTime = shipData[0].arrivalTime;
 
-                arrivalTime = arrivalTime.substr(3, 2) + '.' + arrivalTime.substr(0, 2) + '. ' + arrivalTime.substr(6, 5);
+                //arrivalTime = arrivalTime.substr(3, 2) + '.' + arrivalTime.substr(0, 2) + '. ' + arrivalTime.substr(6, 5);
 
-                $scope.nextShipData.arrivalTime = arrivalTime;
+                $scope.nextShipData.arrivalTime = shipData[0].arrivalTime;
 
                 $scope.shipData = shipData;
                 $scope.shipDataReady = true;
